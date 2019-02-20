@@ -1,0 +1,10 @@
+
+<app-clock-display [currentTime]="currentTime"></app-clock-display>
+<div class="buttons">
+    <button (click)="toggleTimer(!isRunning ? Status.On : Status.Off)">
+      <fa name="play" *ngIf="!isRunning"></fa>
+      <fa name="pause" *ngIf="isRunning"></fa>
+      </button>
+      <button (click)="clearTimer()"> <fa name="eraser"></fa></button>
+      <button (click)="saveTimeRecord()"> <fa name="save"></fa></button>
+</div>

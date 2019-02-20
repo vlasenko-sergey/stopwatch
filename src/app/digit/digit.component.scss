@@ -1,0 +1,124 @@
+:host {
+  width: 75px;
+  height: 150px;
+  display: block;
+}
+
+.top {
+  width: 100%;
+  height: 50%;
+  border-top: rgba(green, 0.2) 7px solid;
+  border-left: rgba(green, 0.2) 7px solid;
+  border-right: rgba(green, 0.2) 7px solid;
+  border-bottom: rgba(green, 0.2) 3px solid;
+  border-radius: 5px;
+  position: relative;
+
+  &-left-cross {
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: #333;
+    left: -8px;
+    top: -2px;
+    transform: rotate(38deg);
+  }
+
+  &-right-cross {
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: #333;
+    right: -8px;
+    top: -2px;
+    transform: rotate(-38deg);
+  }
+
+  &-middle-left-cross {
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: #333;
+    left: -7px;
+    bottom: -2px;
+    transform: rotate(-38deg);
+  }
+
+  &-middle-right-cross {
+    position: absolute;
+    width: 9px;
+    height: 2px;
+    background-color: #333;
+    right: -7px;
+    bottom: -2px;
+    transform: rotate(38deg);
+  }
+}
+
+.bottom {
+  width: 100%;
+  height: 50%;
+  border-bottom: rgba(green, 0.2) 7px solid;
+  border-left: rgba(green, 0.2) 7px solid;
+  border-right: rgba(green, 0.2) 7px solid;
+  border-top: rgba(green, 0.2) 3px solid;
+  border-radius: 5px;
+  position: relative;
+
+  &-left-cross {
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: #333;
+    left: -8px;
+    bottom: -3px;
+    transform: rotate(-38deg);
+  }
+
+  &-right-cross {
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: #333;
+    right: -8px;
+    bottom: -3px;
+    transform: rotate(38deg);
+  }
+
+
+  &-middle-left-cross {
+    position: absolute;
+    width: 9px;
+    height: 2px;
+    background-color: #333;
+    left: -8px;
+    top: -3px;
+    transform: rotate(38deg);
+  }
+
+  &-middle-right-cross {
+    position: absolute;
+    width: 9px;
+    height: 2px;
+    background-color: #333;
+    right: -8px;
+    top: -3px;
+    transform: rotate(-38deg);
+  }
+}
+
+.left-on {
+    border-left-color: rgb(0, 247, 0);
+}
+
+.top-on {
+    border-top-color: rgb(0, 247, 0);
+}
+
+.right-on {
+    border-right-color: rgb(0, 247, 0);
+}
+
+.bottom-on {
+    border-bottom-color: rgb(0, 247, 0);
+}

@@ -1,0 +1,17 @@
+<div class="digits">
+    <app-digit [digit]='firstMinutesDigit'></app-digit>
+    <app-digit [digit]='secondMinutesDigit'></app-digit>
+    <div class="minutes-dots">
+      <div class="minutes-dots__top" 
+          [ngClass]="{'minutes-dots--hidden': !isTimeSecondOdd(currentTime)}"></div>
+      <div class="minutes-dots__bottom"
+          [ngClass]="{'minutes-dots--hidden': !isTimeSecondOdd(currentTime)}"></div>
+    </div>
+    <app-digit [digit]='firstSecondsDigit'></app-digit>
+    <app-digit [digit]='secondSecondsDigit'></app-digit>
+    <div class="seconds-dot__wrapper">
+        <div class="seconds-dot"></div>
+    </div>
+    <app-digit [digit]='firstMillisecondsDigit'></app-digit>
+    <app-digit [digit]='secondMillisecondsDigit'></app-digit>
+</div>

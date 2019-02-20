@@ -1,0 +1,26 @@
+<div class="top" 
+    [ngClass]="
+      {
+        'left-on': topLeftDigits.includes(digit),
+        'top-on': topTopDigits.includes(digit),
+        'right-on': topRightDigits.includes(digit),
+        'bottom-on': middleDigits.includes(digit)
+      }">
+  <div class="top-left-cross"></div>
+  <div class="top-right-cross"></div>
+  <div class="top-middle-left-cross"></div>
+  <div class="top-middle-right-cross"></div>
+</div>
+<div class="bottom"
+    [ngClass]="
+    {
+      'left-on': bottomLeftDigits.includes(digit),
+      'top-on': middleDigits.includes(digit),
+      'right-on': bottomRightDigits.includes(digit),
+      'bottom-on': bottomBottomDigits.includes(digit)
+    }">
+  <div class="bottom-middle-left-cross"></div>
+  <div class="bottom-middle-right-cross"></div>
+  <div class="bottom-left-cross"></div>
+  <div class="bottom-right-cross"></div>
+</div>

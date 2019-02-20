@@ -1,0 +1,10 @@
+<div class="table-header">
+  <div class="number">№</div>
+  <div class="value">value</div>
+  <div class="delete"></div>
+</div>
+<app-record *ngFor="let record of records; let i = index" 
+            [record]="record"
+            [id]="i + 1"
+            (delete)="deleteRecord($event)">
+</app-record>

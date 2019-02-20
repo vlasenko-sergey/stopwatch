@@ -1,0 +1,22 @@
+button {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: solid 2px;
+    font-size: 50px;
+    cursor: pointer;
+    outline: none;
+    color: rgba(black, $alpha: 0.5);
+
+    &:hover {
+        color: rgba(black, $alpha: 1);
+    }
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    width: 700px;
+}

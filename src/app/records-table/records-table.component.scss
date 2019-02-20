@@ -1,0 +1,32 @@
+:host {
+    display: block;
+    width: 700px;
+}
+
+.table-header {
+    display: flex;
+    border-top: solid 2px rgb(112, 112, 112);
+    border-bottom: solid 1px rgb(112, 112, 112);
+    padding: 5px 0;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.number {
+    width: 33%;
+    text-align: center;
+}
+
+.value {
+    width: 33%;
+    text-align: center;
+}
+
+.delete {
+    width: 33%;
+    text-align: center;
+}
+
+app-record {
+    margin: 5px 0;
+}

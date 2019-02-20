@@ -1,0 +1,7 @@
+<div class="number">#{{id}}</div>
+<div class="time">{{record.time | date: 'mm:ss.SS'}}</div>
+<div class="delete">
+  <button (click)="deleteRecord()" class="delete-button">
+      <fa name="trash"></fa>
+  </button>
+</div>

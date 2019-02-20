@@ -1,0 +1,39 @@
+:host {
+    display: flex;
+}
+
+.number {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.time {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.delete {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-button {
+    border: none;
+    background-color: #fff;
+    outline: none;
+    font-size: 28px;
+    color: rgba(black, $alpha: 0.5);
+    cursor: pointer;
+
+    &:hover {
+        color: rgba(black, $alpha: 1);
+    }
+}
