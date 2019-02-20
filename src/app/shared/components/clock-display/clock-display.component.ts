@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+/**
+ * Отвечает за отрисовку led часов
+ */
 @Component({
   selector: 'app-clock-display',
   templateUrl: './clock-display.component.html',
@@ -14,10 +17,12 @@ export class ClockDisplayComponent implements OnInit {
   ngOnInit() {
   }
 
+  //Определяем, нужно ли показывать/скрывать разделитель
   public isTimeSecondOdd(time) {
     return Math.floor(time / 1000) % 2 === 0;
   }
 
+  //Далее идут методы извлечения цифр из времени
   public get firstMinutesDigit() {
     return Math.floor((this.currentTime / 60000)) / 10;
   }

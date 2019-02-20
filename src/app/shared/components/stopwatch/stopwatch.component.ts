@@ -1,19 +1,24 @@
 import { Component, OnInit, HostListener, OnDestroy, EventEmitter, Output } from "@angular/core";
 import { fromEvent, Subject } from "rxjs";
 import { filter, takeUntil } from "rxjs/operators";
-import { StopwatchService } from "../../services/stopwatch.service";
+import { StopwatchService } from "@shared/services/stopwatch.service";
 
+//Тип действия таймера (для сохранения в storage)
 enum ActionType {
   Run = "RUN",
   Pause = "PAUSE",
-  Clear = "CLEAR",
+  Clear = "CLEAR"
 }
 
+//Статус таймера (для сохранения в storage)
 enum Status {
   On = "ON",
   Off = "OFF",
 }
 
+/**
+ * Отвечает за работу с таймером
+ */
 @Component({
   selector: "app-stopwatch",
   templateUrl: "./stopwatch.component.html",
@@ -36,8 +41,10 @@ export class StopwatchComponent implements OnInit, OnDestroy {
 
   private saveCurrentTime() {
     localStorage.setItem("currentTime", this.currentTime.toString());
+    this.stopwatchService.loadCurrentTime(this.currentTime);
   }
 
+  //Сохранение данных перед закрытием
   @HostListener("window:unload", ["$event"])
   unloadHandler(event) {
     this.saveCurrentTime();
@@ -45,6 +52,21 @@ export class StopwatchComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.loadInitialState();
+
+    //Подписываемся на события storage и обрабатываем полученные типы событий от других окон
+    this.storageChanges$
+      .pipe(
+        filter((event: StorageEvent) => event.key == 'action'),
+        takeUntil(this.isDestroyed)
+        )
+      .subscribe((event: StorageEvent) => {
+        this.handleStorageEvent(event)
+      });
+  }
+
+  //Загрузка начального состояния из storage
+  private loadInitialState() {
     let savedTime = localStorage.getItem("currentTime");
     let lastTime = localStorage.getItem("lastTime");
     let savedStatus = localStorage.getItem("status");
@@ -54,44 +76,43 @@ export class StopwatchComponent implements OnInit, OnDestroy {
       } else {
         this.currentTime = Number.parseInt(savedTime);
       }
-      
-      this.stopwatchService.loadCurrentTime(this.currentTime);
     }
+
+    this.stopwatchService.loadCurrentTime(this.currentTime);
 
     if (savedStatus) {
       this.toggleTimer(savedStatus);
     }
-
-    this.storageChanges$
-      .pipe(
-        filter((event: StorageEvent) => event.key == 'action'),
-        takeUntil(this.isDestroyed)
-        )
-      .subscribe((event: StorageEvent) => {
-        this.currentTime = Number.parseInt(localStorage.getItem('currentTime'));
-        switch (event.newValue) {
-          case ActionType.Run:
-            this.toggleTimer(Status.On);
-            break;
-          case ActionType.Pause:
-            this.toggleTimer(Status.Off);
-            break;
-          case ActionType.Clear:
-            this.toggleTimer(Status.Off);
-            this.stopTimer.next();
-            this.stopwatchService.clear();
-            this.currentTime = 0;
-            break;
-        }
-      });
   }
 
+  //Обработка событий storage
+  private handleStorageEvent(event) {
+    this.currentTime = Number.parseInt(localStorage.getItem('currentTime'));
+    switch (event.newValue) {
+      case ActionType.Run:
+        this.toggleTimer(Status.On);
+        break;
+      case ActionType.Pause:
+        this.toggleTimer(Status.Off);
+        break;
+      case ActionType.Clear:
+        this.toggleTimer(Status.Off);
+        this.stopTimer.next();
+        this.stopwatchService.clear();
+        this.currentTime = 0;
+        break;
+    }
+  }
+
+  //Включение/отключение таймера
   public toggleTimer(status) {
     this.isRunning = status ===  Status.On;
     this.saveCurrentTime();
     if (this.isRunning) {
       localStorage.setItem('status', Status.On);
       localStorage.setItem('action', ActionType.Run);
+
+      //Получаем время от сервиса до момента отписки
       this.stopwatchService.currentTime$
         .pipe(
           takeUntil(this.isDestroyed),

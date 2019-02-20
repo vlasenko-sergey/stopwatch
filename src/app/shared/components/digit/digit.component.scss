@@ -8,69 +8,69 @@
 
 .top {
   @include ledSquare();
-  border-top: $turn-off-color 7px solid;
-  border-bottom: $turn-off-color 3px solid;
+  border-top: $turn-off-color 15px solid;
+  border-bottom: $turn-off-color 6px solid;
 
   &-left-cross {
     @include cross();
-    left: -8px;
-    top: -2px;
+    left: -16px;
+    top: -7px;
     transform: rotate(38deg);
   }
 
   &-right-cross {
     @include cross();
-    right: -8px;
-    top: -2px;
+    right: -16px;
+    top: -7px;
     transform: rotate(-38deg);
   }
 
   &-middle-left-cross {
     @include cross();
-    left: -7px;
-    bottom: -2px;
+    left: -17px;
+    bottom: -6px;
     transform: rotate(-38deg);
   }
 
   &-middle-right-cross {
     @include cross();
-    right: -7px;
-    bottom: -2px;
+    right: -16px;
+    bottom: -7px;
     transform: rotate(38deg);
   }
 }
 
 .bottom {
   @include ledSquare();
-  border-top: $turn-off-color 3px solid;
-  border-bottom: $turn-off-color 7px solid;
+  border-top: $turn-off-color 6px solid;
+  border-bottom: $turn-off-color 15px solid;
 
   &-left-cross {
     @include cross();
-    left: -8px;
-    bottom: -3px;
+    left: -16px;
+    bottom: -7px;
     transform: rotate(-38deg);
   }
 
   &-right-cross {
     @include cross();
-    right: -8px;
-    bottom: -3px;
+    right: -16px;
+    bottom: -7px;
     transform: rotate(38deg);
   }
 
 
   &-middle-left-cross {
     @include cross();
-    left: -8px;
-    top: -3px;
+    left: -17px;
+    top: -6px;
     transform: rotate(38deg);
   }
 
   &-middle-right-cross {
     @include cross();
-    right: -8px;
-    top: -3px;
+    right: -16px;
+    top: -4px;
     transform: rotate(-38deg);
   }
 }

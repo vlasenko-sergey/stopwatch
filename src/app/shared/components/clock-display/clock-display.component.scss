@@ -23,7 +23,7 @@
 .seconds-dot {
   width: 10px;
   height: 10px;
-  background-color: rgb(0, 247, 0);
+  background-color: $turn-on-color;
 
   &__wrapper {
     display: flex;
@@ -40,17 +40,17 @@
   &__top {
     width: 10px;
     height: 10px;
-    background-color: rgb(0, 247, 0);
+    background-color: $turn-on-color;
     margin-bottom: 10px;
   }
 
   &__bottom {
     width: 10px;
     height: 10px;
-    background-color: rgb(0, 247, 0);
+    background-color: $turn-on-color;
   }
 
   &--hidden {
-    background-color: rgba(green, 0.2);
+    background-color: $turn-off-color;
   }
 }

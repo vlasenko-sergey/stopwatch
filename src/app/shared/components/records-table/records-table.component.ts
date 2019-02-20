@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RecordModel } from '@shared/models/record-model';
 
+/**
+ * Отображает таблицу с записями времени
+ */
 @Component({
   selector: 'app-records-table',
   templateUrl: './records-table.component.html',
