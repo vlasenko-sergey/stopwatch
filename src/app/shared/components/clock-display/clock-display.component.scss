@@ -1,6 +1,8 @@
+@import '../../styles/led';
+
 :host {
   display: block;
-  background-color: #333;
+  background-color: $clock-bg-color;
   width: 700px;
 }
 

@@ -1,0 +1,92 @@
+@import '../../styles/led';
+
+:host {
+  width: 75px;
+  height: 150px;
+  display: block;
+}
+
+.top {
+  @include ledSquare();
+  border-top: $turn-off-color 7px solid;
+  border-bottom: $turn-off-color 3px solid;
+
+  &-left-cross {
+    @include cross();
+    left: -8px;
+    top: -2px;
+    transform: rotate(38deg);
+  }
+
+  &-right-cross {
+    @include cross();
+    right: -8px;
+    top: -2px;
+    transform: rotate(-38deg);
+  }
+
+  &-middle-left-cross {
+    @include cross();
+    left: -7px;
+    bottom: -2px;
+    transform: rotate(-38deg);
+  }
+
+  &-middle-right-cross {
+    @include cross();
+    right: -7px;
+    bottom: -2px;
+    transform: rotate(38deg);
+  }
+}
+
+.bottom {
+  @include ledSquare();
+  border-top: $turn-off-color 3px solid;
+  border-bottom: $turn-off-color 7px solid;
+
+  &-left-cross {
+    @include cross();
+    left: -8px;
+    bottom: -3px;
+    transform: rotate(-38deg);
+  }
+
+  &-right-cross {
+    @include cross();
+    right: -8px;
+    bottom: -3px;
+    transform: rotate(38deg);
+  }
+
+
+  &-middle-left-cross {
+    @include cross();
+    left: -8px;
+    top: -3px;
+    transform: rotate(38deg);
+  }
+
+  &-middle-right-cross {
+    @include cross();
+    right: -8px;
+    top: -3px;
+    transform: rotate(-38deg);
+  }
+}
+
+.left-on {
+    border-left-color: $turn-on-color;
+}
+
+.top-on {
+    border-top-color: $turn-on-color;
+}
+
+.right-on {
+    border-right-color: $turn-on-color;
+}
+
+.bottom-on {
+    border-bottom-color: $turn-on-color;
+}

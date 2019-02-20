@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { RecordModel } from '../record-model';
+import { RecordModel } from '../../models/record-model';
 
 @Component({
   selector: 'app-record',

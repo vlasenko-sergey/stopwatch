@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener, OnDestroy, EventEmitter, Output } from "@angular/core";
 import { fromEvent, Subject } from "rxjs";
 import { filter, takeUntil } from "rxjs/operators";
-import { StopwatchService } from "../stopwatch.service";
+import { StopwatchService } from "../../services/stopwatch.service";
 
 enum ActionType {
   Run = "RUN",

@@ -1,0 +1,19 @@
+$turn-on-color: rgb(0, 247, 0);
+$turn-off-color: rgba(green, 0.2);
+$clock-bg-color: #333;
+
+@mixin cross() {
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background-color: $clock-bg-color;
+}
+
+@mixin ledSquare {
+  width: 100%;
+  height: 50%;
+  border-left: $turn-off-color 7px solid;
+  border-right: $turn-off-color 7px solid;
+  border-radius: 5px;
+  position: relative;
+}
